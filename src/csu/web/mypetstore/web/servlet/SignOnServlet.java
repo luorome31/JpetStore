@@ -1,6 +1,7 @@
 package csu.web.mypetstore.web.servlet;
 
 import csu.web.mypetstore.domain.Account;
+import csu.web.mypetstore.domain.Cart;
 import csu.web.mypetstore.domain.Product;
 import csu.web.mypetstore.service.AccountService;
 import csu.web.mypetstore.service.CatalogService;
@@ -33,6 +34,7 @@ public class SignOnServlet extends HttpServlet {
             req.getRequestDispatcher(SIGN_ON_FORM).forward(req,resp);
         }else{
             AccountService accountService = new AccountService();
+            Cart cart = new Cart();
             Account loginAccount = accountService.getAccount(username, password);
             if(loginAccount == null){
                 this.msg = "用户名或密码错误";
@@ -40,6 +42,8 @@ public class SignOnServlet extends HttpServlet {
             }else {
                 loginAccount.setPassword(null);
                 HttpSession session = req.getSession();
+                cart.initCart(loginAccount.getUsername());
+                session.setAttribute("cart", cart);
                 session.setAttribute("loginAccount" , loginAccount);
 
                 if(loginAccount.isListOption()){

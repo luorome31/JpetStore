@@ -24,8 +24,6 @@ public class Cart implements Serializable {
         this.username = username;
         List<ItemBasic> itemBasicList = cartDao.getCartItemsByUsername(username);
 
-
-
         for (ItemBasic itemBasic : itemBasicList) {
             CatalogService catalogService = new CatalogService();
             Item item = catalogService.getItem(itemBasic.getItemId());
@@ -68,8 +66,6 @@ public class Cart implements Serializable {
         cartItem.incrementQuantity();
         //将该项添加到数据库中
         cartDao.addToCart(username, item.getItemId(), 1);
-        System.out.println(username + " " + item.getItemId() + " " + 1);
-
     }
 
     public Item removeItemById(String itemId) {

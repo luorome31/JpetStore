@@ -16,27 +16,29 @@ public class NewOrderServlet extends HttpServlet {
     private static final String SHIPPING = "/WEB-INF/jsp/order/ShippingForm.jsp";
     private static final String CONFIRM_ORDER = "/WEB-INF/jsp/order/ConfirmOrder.jsp";
     private static final String VIEW_ORDER = "/WEB-INF/jsp/order/ViewOrder.jsp";
-    OrderService orderService  = new OrderService();
+    OrderService orderService = new OrderService();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req,resp);
+        doGet(req, resp);
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String shippingAddressRequired = req.getParameter("shippingAddressRequired");
         String confirmed = req.getParameter("confirmed");
-        if (shippingAddressRequired!=null&&shippingAddressRequired.equals("true")){
-            req.getRequestDispatcher(SHIPPING).forward(req,resp);
-        } else if(confirmed == null||confirmed.equals("false")){
-            req.getRequestDispatcher(CONFIRM_ORDER).forward(req,resp);
+
+        if (shippingAddressRequired != null && shippingAddressRequired.equals("true")) {
+            req.getRequestDispatcher(SHIPPING).forward(req, resp);
+        } else if (confirmed == null || confirmed.equals("false")) {
+            req.getRequestDispatcher(CONFIRM_ORDER).forward(req, resp);
         } else {
             HttpSession session = req.getSession();
             Order order = (Order) session.getAttribute("order");
             orderService.insertOrder(order);
+            Cart cart = (Cart) session.getAttribute("cart");
             session.removeAttribute("cart");
-            req.getRequestDispatcher(VIEW_ORDER).forward(req,resp);
+            req.getRequestDispatcher(VIEW_ORDER).forward(req, resp);
         }
     }
 }

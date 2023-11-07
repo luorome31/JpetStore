@@ -3,6 +3,7 @@
 <div id="Welcome">
     <div id="WelcomeContent">
         <!-- 显示登录用户的firstName -->
+        <p><font size="15"><b>Welcome ${sessionScope.loginAccount.firstName}</b></font></p>
     </div>
 </div>
 

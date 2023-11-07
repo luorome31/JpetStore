@@ -1,5 +1,9 @@
 package csu.web.mypetstore.domain;
 
+import csu.web.mypetstore.persistence.CartDao;
+import csu.web.mypetstore.persistence.impl.CartDaoImpl;
+import csu.web.mypetstore.service.CatalogService;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.*;
@@ -9,9 +13,26 @@ public class Cart implements Serializable {
     private final Map<String, CartItem> itemMap = Collections.synchronizedMap(new HashMap<String, CartItem>());
 
     private final List<CartItem> itemList = new ArrayList<CartItem>();
-
+    private CartDao cartDao = new CartDaoImpl();
     public Iterator<CartItem> getCartItems() {
         return itemList.iterator();
+    }
+    private  String username;
+
+    public void initCart(String username) {
+        //从数据库中读取该用户的购物车信息
+        this.username = username;
+        List<ItemBasic> itemBasicList = cartDao.getCartItemsByUsername(username);
+        for (ItemBasic itemBasic : itemBasicList) {
+            Item item = new Item();
+            item.setItemId(itemBasic.getItemId());
+            CartItem cartItem = new CartItem();
+            cartItem.setItem(item);
+            cartItem.setQuantity(itemBasic.getNumber());
+            cartItem.setInStock(true);
+            itemMap.put(itemBasic.getItemId(), cartItem);
+            itemList.add(cartItem);
+        }
     }
 
     public List<CartItem> getCartItemList() {
@@ -41,6 +62,10 @@ public class Cart implements Serializable {
             itemList.add(cartItem);
         }
         cartItem.incrementQuantity();
+        //将该项添加到数据库中
+        cartDao.addToCart(username, item.getItemId(), 1);
+        System.out.println(username + " " + item.getItemId() + " " + 1);
+
     }
 
     public Item removeItemById(String itemId) {
@@ -49,6 +74,9 @@ public class Cart implements Serializable {
             return null;
         } else {
             itemList.remove(cartItem);
+
+            cartDao.removeFromCart(username, itemId);
+
             return cartItem.getItem();
         }
     }
@@ -56,11 +84,15 @@ public class Cart implements Serializable {
     public void incrementQuantityByItemId(String itemId) {
         CartItem cartItem = (CartItem) itemMap.get(itemId);
         cartItem.incrementQuantity();
+        //将数据库中的相应的项进行数量的增加
+        cartDao.updateCartItemQuantity(username, itemId, cartItem.getQuantity()+1);
     }
 
     public void setQuantityByItemId(String itemId, int quantity) {
         CartItem cartItem = (CartItem) itemMap.get(itemId);
         cartItem.setQuantity(quantity);
+        //将数据库中的相应的项进行数量的修改
+        cartDao.updateCartItemQuantity(username, itemId, quantity);
     }
 
     public BigDecimal getSubTotal() {

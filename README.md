@@ -1,0 +1,2 @@
+# JpetStore
+基于MVC开发模式用JSP/Servlet技术实现宠物商店网站JPetStore

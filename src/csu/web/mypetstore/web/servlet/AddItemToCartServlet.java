@@ -16,26 +16,35 @@ public class AddItemToCartServlet extends HttpServlet {
     private static final String CART_FORM = "/WEB-INF/jsp/cart/cart.jsp";
 
     @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
+    }
+
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String workingItemId = req.getParameter("workingItemId");
 
         HttpSession session = req.getSession();
         Cart cart = (Cart) session.getAttribute("cart");
+        Integer sessionFlag = (Integer) session.getAttribute("flag");
+        Integer requestFlag =  Integer.parseInt(req.getParameter("flag"));
+
 
         if(cart == null){
             cart = new Cart();
         }
-
-        if (cart.containsItemId(workingItemId)) {
-            cart.incrementQuantityByItemId(workingItemId);
-        } else {
-            CatalogService catalogService = new CatalogService();
-            boolean isInStock = catalogService.isItemInStock(workingItemId);
-            Item item = catalogService.getItem(workingItemId);
-            cart.addItem(item, isInStock);
+        if(requestFlag>sessionFlag) {
+            if (cart.containsItemId(workingItemId)) {
+                cart.incrementQuantityByItemId(workingItemId);
+            } else {
+                CatalogService catalogService = new CatalogService();
+                boolean isInStock = catalogService.isItemInStock(workingItemId);
+                Item item = catalogService.getItem(workingItemId);
+                cart.addItem(item, isInStock);
+            }
+            session.setAttribute("flag", requestFlag);
         }
-
         session.setAttribute("cart", cart);
         req.getRequestDispatcher(CART_FORM).forward(req, resp);
     }

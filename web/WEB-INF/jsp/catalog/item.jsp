@@ -7,21 +7,24 @@
 </div>
 
 <div id="Catalog">
-
     <table>
         <tr>
             <td>${sessionScope.product.description}</td>
         </tr>
         <tr>
-            <td><b> ${sessionScope.item.itemId} </b></td>
+            <td><b>${sessionScope.item.itemId}</b></td>
         </tr>
         <tr>
-            <td><b><font size="4">
-                ${sessionScope.item.attribute1}
-                ${sessionScope.item.attribute2} ${sessionScope.item.attribute3}
-                ${sessionScope.item.attribute4} ${sessionScope.item.attribute5}
-                ${sessionScope.product.name}
-            </font></b></td>
+            <td>
+                <b><font size="4">
+                    ${sessionScope.item.attribute1}
+                    ${sessionScope.item.attribute2}
+                    ${sessionScope.item.attribute3}
+                    ${sessionScope.item.attribute4}
+                    ${sessionScope.item.attribute5}
+                    ${sessionScope.product.name}
+                </font></b>
+            </td>
         </tr>
         <tr>
             <td>${sessionScope.product.name}</td>
@@ -39,17 +42,16 @@
         <tr>
             <td><fmt:formatNumber value="${sessionScope.item.listPrice}" pattern="$#,##0.00" /></td>
         </tr>
-
         <tr>
             <td>
-                <a href="addItemToCart?workingItemId=${sessionScope.item.itemId}" class="Button">Add to Cart</a>
+                <form action="addItemToCart" method="POST">
+                    <input type="hidden" name="flag" id="flag" value="${sessionScope.flag+1}">
+                    <input type="hidden" name="workingItemId" value="${sessionScope.item.itemId}">
+                    <button type="submit" class="Button">Add to Cart</button>
+                </form>
             </td>
         </tr>
     </table>
-
 </div>
 
 <%@ include file="../common/bottom.jsp"%>
-
-
-

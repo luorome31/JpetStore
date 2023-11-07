@@ -64,7 +64,7 @@ public class SignOnServlet extends HttpServlet {
             return false;
         }
         if(this.password == null || this.password.equals("")){
-            this.msg = "密码不能为空,我的天哪";
+            this.msg = "密码不能为空";
             return false;
         }
         return true;

@@ -10,4 +10,6 @@ public interface CartDao {
     void removeFromCart(String username, String itemId);
     void updateCartItemQuantity(String username, String itemId, int quantity);
     List<ItemBasic> getCartItemsByUsername(String username);
-}
+    public void deleteCartByUsername(String username);
+
+    }

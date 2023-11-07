@@ -165,6 +165,45 @@ public class CartDaoImpl implements CartDao {
         return items;
     }
 
+    @Override
+    public void deleteCartByUsername(String username) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+            connection = DBUtil.getConnection();
+            connection.setAutoCommit(false); // 开始事务
+
+            String sql = "DELETE FROM cart WHERE username = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, username);
+            preparedStatement.executeUpdate();
+
+            connection.commit(); // 提交事务
+        } catch (SQLException e) {
+            try {
+                if (connection != null) {
+                    connection.rollback(); // 发生异常时回滚事务
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            e.printStackTrace();
+            // 处理数据库异常
+        } finally {
+            try {
+                if (connection != null) {
+                    connection.setAutoCommit(true); // 恢复自动提交模式
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
+        }
+    }
+    }
+
 //    public static void main(String[] args) {
 //        // 测试上述函数
 //        CartDao cartDao = new CartDaoImpl();
@@ -188,4 +227,3 @@ public class CartDaoImpl implements CartDao {
 //    cartDao.removeFromCart(username, itemId);
 //
 //}
-}

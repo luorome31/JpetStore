@@ -7,22 +7,24 @@
 --%>
 <%@ include file="../common/top.jsp" %>
 
-<h2>My Logs</h2>
+<div id="centered-table-container" style="text-align: center;">
+    <h2>My Logs</h2>
 
-<table>
-    <tr>
-        <th><b>User Name</b></th>
-        <th><b>Behavior</b></th>
-        <th><b>Date</b></th>
-    </tr>
-
-    <c:forEach items="${requestScope.recordList}" var="record">
+    <table style="display: inline-block; text-align: left;">
         <tr>
-            <td><c:out value="${record.getUsername()}"/></td>
-            <td><c:out value="${record.getRecord()}"/></td>
-            <td><c:out value="${record.getRecordDate()}"/></td>
+            <th><b>User Name</b></th>
+            <th><b>Behavior</b></th>
+            <th><b>Date</b></th>
         </tr>
-    </c:forEach>
-</table>
+
+        <c:forEach items="${requestScope.recordList}" var="record">
+            <tr>
+                <td><c:out value="${record.getUsername()}"/></td>
+                <td><c:out value="${record.getRecord()}"/></td>
+                <td><c:out value="${record.getRecordDate()}"/></td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
 
 <%@ include file="../common/bottom.jsp" %>

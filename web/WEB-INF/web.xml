@@ -134,4 +134,62 @@
         <url-pattern>/searchRecord</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>SignOutServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.SignOutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignOutServlet</servlet-name>
+        <url-pattern>/signOut</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RegisterFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.RegisterFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterFormServlet</servlet-name>
+        <url-pattern>/registerForm</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>EditAccountServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.EditAccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditAccountServlet</servlet-name>
+        <url-pattern>/editAccount</url-pattern>
+    </servlet-mapping>
+    <!--账号信息更改-->
+    <servlet>
+        <servlet-name>SaveAccountServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.SaveAccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SaveAccountServlet</servlet-name>
+        <url-pattern>/saveAccount</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>VerificationCode</servlet-name>
+        <servlet-class>csu.web.mypetstore.domain.VerificationCode</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VerificationCode</servlet-name>
+        <url-pattern>/verificationCode</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SearchProductServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.SearchProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchProductServlet</servlet-name>
+        <url-pattern>/searchProduct</url-pattern>
+    </servlet-mapping>
 </web-app>

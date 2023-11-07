@@ -29,6 +29,15 @@ public class SignOnServlet extends HttpServlet {
         this.password = req.getParameter("password");
         System.out.println(username);
         //校验用户输入的正确性
+        String value1=req.getParameter("vCode");
+        /*获取图片的值*/
+        HttpSession session=req.getSession();
+        String value2=(String)session.getAttribute("checkcode");
+        Boolean isSame = false;
+        /*对比两个值（字母不区分大小写）*/
+        if(value2.equalsIgnoreCase(value1)){
+            isSame = true;
+        }
         if(!validate()){
             req.setAttribute("signOnMsg", this.msg);
             req.getRequestDispatcher(SIGN_ON_FORM).forward(req,resp);
@@ -40,9 +49,12 @@ public class SignOnServlet extends HttpServlet {
             if(loginAccount == null){
                 this.msg = "用户名或密码错误";
                 req.getRequestDispatcher(SIGN_ON_FORM).forward(req,resp);
-            }else {
+            }else if(!isSame){
+                this.msg = "验证码错误";
+                req.getRequestDispatcher(SIGN_ON_FORM).forward(req,resp);
+            } else {
                 loginAccount.setPassword(null);
-                HttpSession session = req.getSession();
+                session = req.getSession();
                 cart.initCart(loginAccount.getUsername());
                 session.setAttribute("cart", cart);
                 session.setAttribute("loginAccount" , loginAccount);

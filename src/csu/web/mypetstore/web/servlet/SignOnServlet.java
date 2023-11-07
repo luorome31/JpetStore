@@ -27,7 +27,7 @@ public class SignOnServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.username = req.getParameter("username");
         this.password = req.getParameter("password");
-
+        System.out.println(username);
         //校验用户输入的正确性
         if(!validate()){
             req.setAttribute("signOnMsg", this.msg);
@@ -35,6 +35,7 @@ public class SignOnServlet extends HttpServlet {
         }else{
             AccountService accountService = new AccountService();
             Cart cart = new Cart();
+            System.out.println(cart);
             Account loginAccount = accountService.getAccount(username, password);
             if(loginAccount == null){
                 this.msg = "用户名或密码错误";
@@ -63,7 +64,7 @@ public class SignOnServlet extends HttpServlet {
             return false;
         }
         if(this.password == null || this.password.equals("")){
-            this.msg = "密码不能为空";
+            this.msg = "密码不能为空,我的天哪";
             return false;
         }
         return true;

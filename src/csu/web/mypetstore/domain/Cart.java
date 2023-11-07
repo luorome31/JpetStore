@@ -23,9 +23,12 @@ public class Cart implements Serializable {
         //从数据库中读取该用户的购物车信息
         this.username = username;
         List<ItemBasic> itemBasicList = cartDao.getCartItemsByUsername(username);
+
+
+
         for (ItemBasic itemBasic : itemBasicList) {
-            Item item = new Item();
-            item.setItemId(itemBasic.getItemId());
+            CatalogService catalogService = new CatalogService();
+            Item item = catalogService.getItem(itemBasic.getItemId());
             CartItem cartItem = new CartItem();
             cartItem.setItem(item);
             cartItem.setQuantity(itemBasic.getNumber());
@@ -58,6 +61,7 @@ public class Cart implements Serializable {
             cartItem.setItem(item);
             cartItem.setQuantity(0);
             cartItem.setInStock(isInStock);
+
             itemMap.put(item.getItemId(), cartItem);
             itemList.add(cartItem);
         }

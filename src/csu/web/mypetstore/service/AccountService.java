@@ -35,6 +35,7 @@ public class AccountService {
             accountDao.updateSignon(account);
         }
     }
+
     public List<Record> searchRecord(String username){
         return logDao.searchRecord(username);
     }

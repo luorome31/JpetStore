@@ -107,4 +107,7 @@ public class Cart implements Serializable {
         }
         return subTotal;
     }
+    public void deleteCart(){
+        cartDao.deleteCartByUsername(username);
+    }
 }

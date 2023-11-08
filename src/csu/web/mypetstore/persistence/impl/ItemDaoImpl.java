@@ -29,7 +29,7 @@ public class ItemDaoImpl implements ItemDao {
             PreparedStatement pStatement = connection
                     .prepareStatement(updateInventoryQuantityString);
             String itemId = param.keySet().iterator().next();
-            Integer increment = (Integer) param.get(itemId);
+            Integer increment = Integer.parseInt((String) param.get(itemId));
             pStatement.setInt(1, increment.intValue());
             pStatement.setString(2, itemId);
             pStatement.executeUpdate();

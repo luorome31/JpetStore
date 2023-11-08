@@ -37,7 +37,9 @@ public class NewOrderServlet extends HttpServlet {
             Order order = (Order) session.getAttribute("order");
             orderService.insertOrder(order);
             Cart cart = (Cart) session.getAttribute("cart");
+            cart.deleteCart();
             session.removeAttribute("cart");
+
             req.getRequestDispatcher(VIEW_ORDER).forward(req, resp);
         }
     }

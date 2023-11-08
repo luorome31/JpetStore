@@ -24,6 +24,11 @@ public class SignOnServlet extends HttpServlet {
     private String msg;
 
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.username = req.getParameter("username");
         this.password = req.getParameter("password");

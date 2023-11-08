@@ -21,6 +21,9 @@ public class Cart implements Serializable {
 
     public void initCart(String username) {
         //从数据库中读取该用户的购物车信息
+        if(username==null)
+            return;
+
         this.username = username;
         List<ItemBasic> itemBasicList = cartDao.getCartItemsByUsername(username);
 

@@ -7,8 +7,8 @@
             <p> <font color="red">${requestScope.signOnMsg} </font> </p>
         </c:if>
         <p>
-            Username:<input type="text" name="username" value="j2ee"/><br />
-            Password:<input type="password" name="password" value="j2ee"/><br />
+            Username:<input type="text" name="username" /><br />
+            Password:<input type="password" name="password" /><br />
             VerificationCode:<input type="text" name="vCode" size="5" maxlength="4"/>
             <a href="signOn"><img border="0" src="verificationCode" name="checkcode" ></a>
         </p>

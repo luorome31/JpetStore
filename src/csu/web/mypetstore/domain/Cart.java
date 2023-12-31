@@ -95,7 +95,7 @@ public class Cart implements Serializable {
         CartItem cartItem = (CartItem) itemMap.get(itemId);
         cartItem.setQuantity(quantity);
         //将数据库中的相应的项进行数量的修改
-        cartDao.updateCartItemQuantity(username, itemId, quantity);
+         cartDao.updateCartItemQuantity(username, itemId, quantity);
     }
 
     public BigDecimal getSubTotal() {

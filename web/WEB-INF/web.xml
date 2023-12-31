@@ -192,4 +192,29 @@
         <servlet-name>SearchProductServlet</servlet-name>
         <url-pattern>/searchProduct</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ProductAutoCompleteServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ProductAutoCompleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductAutoCompleteServlet</servlet-name>
+        <url-pattern>/productAuto</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>quantityChangeServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.quantityChangeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>quantityChangeServlet</servlet-name>
+        <url-pattern>/quantityChange</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>generateOrderServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.generateOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>generateOrderServlet</servlet-name>
+        <url-pattern>/myOrder</url-pattern>
+    </servlet-mapping>
 </web-app>

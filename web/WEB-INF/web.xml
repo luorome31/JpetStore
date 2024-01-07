@@ -217,4 +217,40 @@
         <servlet-name>generateOrderServlet</servlet-name>
         <url-pattern>/myOrder</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MainStyleServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.MainStyleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MainStyleServlet</servlet-name>
+        <url-pattern>/mainStyle</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MainListServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.MainListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MainListServlet</servlet-name>
+        <url-pattern>/mainList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>preViewServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.preViewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>preViewServlet</servlet-name>
+        <url-pattern>/preView</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UsernameExistServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.UsernameExistServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsernameExistServlet</servlet-name>
+        <url-pattern>/usernameExist</url-pattern>
+    </servlet-mapping>
 </web-app>

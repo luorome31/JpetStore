@@ -1,0 +1,49 @@
+.Button, .Button:link, .Button:visited {
+    padding: .3ex;
+    color: #fff;
+    background-color: #005e21;
+    text-decoration: none;
+    font-family: helvetica, tahoma, arial, verdana, sans-serif;
+    font-size: 2ex;
+    height: 30px;
+}
+
+.Button:hover {
+    color: #000;
+    background-color: #54c07a;
+}
+#Cart{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 69.99%;
+    float: left;
+    background-color:#fff;
+}
+#productAutoComplete{
+    background:#ccc;
+    position: relative;
+    top:-8px;
+    left: 15px;
+    width:180px;
+}
+#productAutoList{
+    margin:0;
+    padding: 0;
+}
+.productAutoItem{
+    list-style: none;
+    height: 18.5px;
+    line-height: 20px;
+    font-size:10px;
+    margin-top:3px;
+    text-align: left;
+    padding-left:5px;
+    cursor:pointer;
+}
+#SearchPlace {
+    float: left;
+    height: 9ex;
+}

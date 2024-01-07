@@ -4,7 +4,7 @@ body {
     font-family: helvetica, tahoma, arial, verdana, sans-serif;
     font-size: 2ex;
     color: #333;
-    background-color: #444;
+    background-color: #FFFFFF;
     width: 1080px;
 }
 
@@ -176,9 +176,13 @@ body>#Menu {
     voice-family: inherit;
     height: 9ex;
 }
-
+#SearchContent{
+    height: 9ex;
+}
 body>#Search {
     height: 9ex;
+    justify-content: center;
+    align-items: center;
 }
 
 #Search input {
@@ -187,6 +191,9 @@ body>#Search {
     border-color: #aaa;
     background-color: #666;
     color: #eaac00;
+    height: 5em;
+    margin: 1px;
+
 }
 
 #QuickLinks {
@@ -355,7 +362,7 @@ body>#Banner {
     position: relative;
     top:-28px;
     left: 95px;
-    width:164px;
+    width:100px;
 }
 #productAutoList{
     margin:0;

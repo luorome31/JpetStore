@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class SignOutServlet extends HttpServlet {
-    private static final String MAIN = "/WEB-INF/jsp/catalog/main.jsp";
+    private static final String MAIN = "/WEB-INF/jsp/catalog/newMain.jsp";
 
     private Account loginAccount = null;
 

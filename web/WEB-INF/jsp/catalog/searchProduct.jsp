@@ -1,4 +1,4 @@
-<%@ include file="../common/top.jsp"%>
+<%@ include file="../common/newTop.jsp"%>
 
 <div id="BackLink">
     <a href="mainForm">Return to Main Menu</a>

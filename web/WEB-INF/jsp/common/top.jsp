@@ -10,7 +10,10 @@
     <title>MyPetStore</title>
     <meta charset="UTF-8">
     <link rel="StyleSheet" href="css/mypetstore.css" type="text/css" media="screen" />
+<%--    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">--%>
+
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
 </head>
 
 <body>

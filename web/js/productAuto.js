@@ -9,7 +9,7 @@ $(function () {
               console.log(data);
               var productListHTML='';
               for(var i=0;i<data.length;i++){
-                  productListHTML+='<li class=\"productAutoItem\" data-productId="';
+                  productListHTML+='<li class=\"productAutoItem\" productId="';
                   productListHTML+=data[i].productId;
                   productListHTML+='">';
                   productListHTML+=data[i].categoryId;
@@ -31,7 +31,7 @@ $(function () {
   }
  });
 $(document).on('click','.productAutoItem',function () {
-   var productId=$(this).data('productId');
+   var productId=$(this).attr('productId');
    console.log(productId);
     $('#productAutoComplete').hide();
     $('keyword').val('');

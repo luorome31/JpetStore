@@ -25,7 +25,7 @@
 
 <nav class="navbar container" role="navigation">
     <div class="navbar-header">
-        <a class="navbar-brand" href="mainStyle">JPetStore</a>
+        <a class="navbar-brand" href="#">JPetStore</a>
     </div>
     <ul class="nav navbar-nav">
         <li class="nav-item">
@@ -48,18 +48,7 @@
                 <a class="nav-link" href="editAccount">My Account</a>
             </li>
         </c:if>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Pet Category <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu text-muted text-uppercase">
-                <li><a href="categoryForm?categoryId=FISH">Fish</a></li>
-                <li><a href="categoryForm?categoryId=BIRDS">Bird</a></li>
-                <li><a href="categoryForm?categoryId=DOGS">Dog</a></li>
-                <li><a href="categoryForm?categoryId=REPTILES">Reptile</a></li>
-                <li><a href="categoryForm?categoryId=CATS">Cat</a></li>
-            </ul>
-        </li>
+
         <li class="nav-item">
             <a class="nav-link" href="help.html">?</a>
         </li>
@@ -87,21 +76,20 @@
 
 </nav>
 <div class="container">
-    <ul class="col-md-8 nav nav-tabs nav-justified">
-        <li></li>
-        <li class="nav-item" id="tab1">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
             <a class="nav-link active" href="#div1" data-toggle="tab">Shipping & Billing</a>
         </li>
-        <li class="nav-item " id="tab2">
+        <li class="nav-item">
             <a class="nav-link" href="#div2" data-toggle="tab">Confirm Order</a>
         </li>
-        <li class="nav-item" id="tab3">
+        <li class="nav-item">
             <a class="nav-link" href="#div3" data-toggle="tab">Confirm</a>
         </li>
-        <li></li>
     </ul>
-    <div class="tab-content myTab">
-        <div id="div1" class="tab-pane in active Catalog col-md-8 col-md-offset-2 ">
+
+    <div class="tab-content">
+        <div id="div1" class="Catalog col-md-8 col-md-offset-2 ">
             <table class="table table-bordered table-striped table-hover">
                 <tr>
                     <th colspan="2">Payment Details</th>
@@ -181,17 +169,15 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="checkbox"  name="shippingAddressRequired" value="true" id="shippingAddress"/>
-                        Ship to the same address
-                    </td>
 
+                    </td>
                 </tr>
             </table>
             <%--        <input class="confirmButton" type="submit" value="Continue" />--%>
-            <button class="confirmButton btn-primary col-md-offset-5" id="fillOutBtn">confirm</button>
+            <button class="confirmButton btn-primary col-md-offset-4">confirm</button>
 
         </div>
-        <div id="div2" class="tab-pane fade Catalog col-md-8 col-md-offset-2 " hidden>
+        <div id="div2" class="Catalog col-md-8 col-md-offset-2 " hidden>
             <table class="table table-bordered table-striped table-hover">
                 <tr>
                     <th align="center" colspan="2"><font size="4"><b>Order</b></font><br/>
@@ -271,9 +257,9 @@
             </table>
 
             <input type="hidden" name="confirmed" value="true">
-            <button class="confirmButton btn-primary col-md-offset-5" id="confirmBtn">confirm</button>
+            <button class="confirmButton btn-primary col-md-offset-4">confirm</button>
         </div>
-        <div id="div3" class="tab-pane fade Catalog col-md-8 col-md-offset-2" hidden>
+        <div id="div3" class="Catalog col-md-8 col-md-offset-2" hidden>
             <table class="table table-bordered table-striped table-hover">
                 <tr>
                     <th align="center" colspan="2">Order #<c:out value="${sessionScope.order.orderId}"/></th>
@@ -414,62 +400,7 @@
 
 
 </div>
-<div class="modal fade" id="shippingCheck" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title text-capitalize" id="ConfirmHead" >fill out your shipping address</h4>
-            </div>
-            <div class="modal-body">
-                <div>
-                    <table class="table table-striped table-bordered text-center table-hover col-md-8">
-                        <tr>
-                            <th colspan="2">Shipping Address</th>
-                        </tr>
-                        <tr>
-                            <td>First name:</td>
-                            <td><input type="text" value=${sessionScope.order.shipToFirstName} /></td>
-                        </tr>
-                        <tr>
-                            <td>Last name:</td>
-                            <td><input type="text" value=${sessionScope.order.shipToLastName} /></td>
-                        </tr>
-                        <tr>
-                            <td>Address 1:</td>
-                            <td><input type="text" size="40" value=${sessionScope.order.shipAddress1} /></td>
-                        </tr>
-                        <tr>
-                            <td>Address 2:</td>
-                            <td><input type="text" size="40" value=${sessionScope.order.shipAddress2} /></td>
-                        </tr>
-                        <tr>
-                            <td>City:</td>
-                            <td><input type="text" value=${sessionScope.order.shipCity} /></td>
-                        </tr>
-                        <tr>
-                            <td>State:</td>
-                            <td><input type="text" size="4" value=${sessionScope.order.shipState} /></td>
-                        </tr>
-                        <tr>
-                            <td>Zip:</td>
-                            <td><input type="text" size="10" value=${sessionScope.order.shipZip} /></td>
-                        </tr>
-                        <tr>
-                            <td>Country:</td>
-                            <td><input type="text" size="15" value=${sessionScope.order.shipCountry} /></td>
-                        </tr>
-                    </table>
 
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeBtn">close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="submitBtn">submit</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div>
 <div class="container" id="Footer">
 
     <div id="PoweredBy">&nbsp<a href="http://www.csu.edu.cn">www.csu.edu.cn</a>
@@ -488,7 +419,8 @@
 </div>
 
 <script src="js/productAuto.js"></script>
-<script src="js/generateOrder.js"></script>
+<script src="js/cartNumber.js"></script>
+<script src="js/orderConfirm.js"></script>
 <script src="js/setInitMainList.js"></script>
 <script src="js/preView.js"></script>
 </body>

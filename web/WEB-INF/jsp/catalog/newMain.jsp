@@ -5,54 +5,152 @@
   Time: 20:09
   To change this template use File | Settings | File Templates.
 --%>
-<%@ include file="../common/top.jsp"%>
-<div id="Welcome">
-    <div id="WelcomeContent">
-        <!-- 显示登录用户的firstName -->
-        <p><font size="15"><b>Welcome ${sessionScope.loginAccount.firstName}</b></font></p>
-    </div>
-</div>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
-<div id="Main">
-    <div id="Sidebar">
-        <div id="SidebarContent">
-            <a href="categoryForm?categoryId=FISH"><img src="images/fish_icon.gif" /></a><br />
-            Saltwater, Freshwater <br />
-            <a href="categoryForm?categoryId=DOGS"><img src="images/dogs_icon.gif" /></a><br />
-            Various Breeds <br />
-            <a href="categoryForm?categoryId=CATS"><img src="images/cats_icon.gif" /></a><br />
-            Various Breeds, Exotic Varieties <br />
-            <a href="categoryForm?categoryId=REPTILES"><img src="images/reptiles_icon.gif" /></a><br />
-            Lizards, Turtles, Snakes <br />
-            <a href="categoryForm?categoryId=BIRDS"><img src="images/birds_icon.gif" /></a><br />
-            Exotic Varieties
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>MyPetStore</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="StyleSheet" href="css/mainForm.css" type="text/css" media="screen" />
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+
+
+</head>
+
+<body>
+
+<nav class="navbar container" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="mainStyle">JPetStore</a>
         </div>
+        <ul class="nav navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="cartForm">
+                    <img align="middle" name="img_cart" src="images/cart.gif" />
+                </a>
+            </li>
+
+            <c:if test="${sessionScope.loginAccount == null}">
+                <li class="nav-item">
+                    <a class="nav-link" href="signonForm">Sign In</a>
+                </li>
+            </c:if>
+
+            <c:if test="${sessionScope.loginAccount != null}">
+                <li class="nav-item">
+                    <a class="nav-link" href="signOut">Sign Out</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="editAccount">My Account</a>
+                </li>
+            </c:if>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                   Pet Category <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu text-muted text-uppercase">
+                    <li><a href="categoryForm?categoryId=FISH">Fish</a></li>
+                    <li><a href="categoryForm?categoryId=BIRDS">Bird</a></li>
+                    <li><a href="categoryForm?categoryId=DOGS">Dog</a></li>
+                    <li><a href="categoryForm?categoryId=REPTILES">Reptile</a></li>
+                    <li><a href="categoryForm?categoryId=CATS">Cat</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="help.html">?</a>
+            </li>
+        </ul>
+        <div id="SearchPlace" class="navbar-right">
+            <div >
+                <form class="navbar-form " role="search" action="searchProduct" method="post" autocomplete="off" id="Search">
+                    <input class="form-control mr-sm-2" type="text" name="keyword" size="16" id="keyword"
+                           placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+            <div id="productAutoComplete">
+                <ul id="productAutoList">
+<%--                    <li class="productAutoItem">Amazon</li>--%>
+<%--                    <li class="productAutoItem">Amazon</li>--%>
+<%--                    <li class="productAutoItem">Amazon</li>--%>
+<%--                    <li class="productAutoItem">Amazon</li>--%>
+<%--                    <li class="productAutoItem">Amazon</li>--%>
+<%--                    <li class="productAutoItem">Amazon</li>--%>
+                </ul>
+            </div>
+
+        </div>
+
+</nav>
+<div class="container">
+    <div class="btn-group btn-group-sm buttonGroup" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-success">FISH</button>
+        <button type="button" class="btn btn-danger">BIRDS</button>
+        <button type="button" class="btn btn-primary">DOGS</button>
+        <button type="button" class="btn btn-info">REPTILES</button>
+        <button type="button" class="btn btn-secondary" >CATS</button>
+    </div>
+    <hr>
+    <div class="container mainShow">
+        <c:forEach var="item" items="${sessionScope.mainList}" varStatus="loopStatus">
+            <c:if test="${loopStatus.index % 4 == 0}">
+                <div class="row">
+            </c:if>
+
+            <div class="col-md-3">
+                <div class="card border-success mb-3">
+                    <a href="itemForm?itemId=${item.itemId}" class="productImage">
+                        ${item.product.description}
+                    </a>
+                    <div class="card-body">
+                        <p class="card-text">${item.itemId}</p>
+                        <p class="card-text">price: $${item.listPrice}</p>
+                    </div>
+                </div>
+            </div>
+
+            <c:if test="${loopStatus.index % 4 == 3 or loopStatus.last}">
+                </div>
+            </c:if>
+        </c:forEach>
+
     </div>
 
-    <div id="MainImage">
-        <div id="MainImageContent">
-            <map name="estoremap">
-                <area alt="Birds" coords="72,2,280,250"
-                      href="categoryForm?categoryId=BIRDS" shape="RECT" />
-                <area alt="Fish" coords="2,180,72,250"
-                      href="categoryForm?categoryId=FISH" shape="RECT" />
-                <area alt="Dogs" coords="60,250,130,320"
-                      href="categoryForm?categoryId=DOGS" shape="RECT" />
-                <area alt="Reptiles" coords="140,270,210,340"
-                      href="categoryForm?categoryId=REPTILES" shape="RECT" />
-                <area alt="Cats" coords="225,240,295,310"
-                      href="categoryForm?categoryId=CATS" shape="RECT" />
-                <area alt="Birds" coords="280,180,350,250"
-                      href="categoryForm?categoryId=BIRDS" shape="RECT" />
-            </map>
-            <img height="355" src="images/splash.gif" align="middle"
-                 usemap="#estoremap" width="350" /></div>
-    </div>
 
-    <div id="Separator">&nbsp;</div>
 </div>
 
+<div class="container" id="Footer">
 
+    <div id="PoweredBy">&nbsp<a href="http://www.csu.edu.cn">www.csu.edu.cn</a>
+    </div>
 
-<%@ include file="../common/bottom.jsp"%>
+    <div id="Banner">
+
+        <c:if test="${sessionScope.loginAccount != null }">
+            <c:if test="${sessionScope.loginAccount.bannerOption}">
+                ${sessionScope.loginAccount.bannerName}
+            </c:if>
+        </c:if>
+    </div>
+    <div class="product-preview bg-info text-success"></div>
+
+</div>
+
+<script src="js/productAuto.js"></script>
+<script src="js/cartNumber.js"></script>
+<script src="js/orderConfirm.js"></script>
+<script src="js/preView.js"></script>
+<script src="js/setInitMainList.js"></script>
+</body>
+</html>
 

@@ -70,7 +70,7 @@ public class SignOnServlet extends HttpServlet {
                     session.setAttribute("myList", myList);
                 }
 
-                resp.sendRedirect("mainForm");
+                resp.sendRedirect("mainStyle");
             }
         }
     }

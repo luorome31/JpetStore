@@ -11,15 +11,16 @@ $(document).ready(function() {
                     $('#div1').hide();
                     $('#div2').show();
                     $('#div3').hide();
-                    $(".icon2:eq(0)").css("color", "black");
-                    $(".icon2:eq(1)").css("color", "blue");
+                    $(".icon2:eq(0)").attr("class", "icon2 text-center text-default");
+                    $(".icon2:eq(1)").attr("class", "icon2 text-center text-success");
+
                     stage = 2
                 } else if (response.stage === 3) {
                     $('#div1').hide();
                     $('#div2').hide();
                     $('#div3').show();
-                    $(".icon2:eq(1)").css("color", "black");
-                    $(".icon2:eq(2)").css("color", "blue");
+                    $(".icon2:eq(1)").attr("class", "icon2 text-center text-default");
+                    $(".icon2:eq(2)").attr("class", "icon2 text-center text-success");
                     stage=3
                 }
             },
@@ -28,4 +29,5 @@ $(document).ready(function() {
             }
         });
     });
+
 });

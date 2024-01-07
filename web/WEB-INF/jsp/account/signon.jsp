@@ -12,7 +12,7 @@
 <head>
     <title>MyPetStore</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="StyleSheet" href="bootstrap/css/bootstrap.css" type="text/css" media="screen" />
     <link rel="StyleSheet" href="css/mainForm.css" type="text/css" media="screen" />
 
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>

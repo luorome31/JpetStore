@@ -1,13 +1,13 @@
 
-<%@ include file="../common/top.jsp"%>
+<%@ include file="../common/newTop.jsp"%>
 
 <h2>My Orders</h2>
 
-<table>
+<table class="table table-striped text-center">
 	<tr>
-		<th>Order ID</th>
-		<th>Date</th>
-		<th>Total Price</th>
+		<th class="text-center">Order ID</th>
+		<th class="text-center">Date</th>
+		<th class="text-center">Total Price</th>
 	</tr>
 
 	<c:forEach var="order" items="${sessionScope.orderList}">

@@ -1,4 +1,4 @@
-<%@ include file="../common/top.jsp"%>
+<%@ include file="../common/newTop.jsp"%>
 
 <div id="Catalog">
     <form action="saveAccount" method="post">
@@ -8,7 +8,7 @@
             <tr>
                 <td>User ID:</td>
                 <td><input type="text" name="username" id="username" placeholder="${sessionScope.loginAccount.username}"></td>
-                <div id="feedback"></div>
+                <div class="text-danger" id="feedback"></div>
 
             </tr>
             <tr>

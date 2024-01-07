@@ -1,7 +1,7 @@
-<%@ include file="../common/top.jsp"%>
+<%@ include file="../common/newTop.jsp"%>
 
-<div id="Catalog">
-	<table>
+<div id="Catalog" class="container">
+	<table class="table-striped table col-md-8">
 		<tr>
 			<th align="center" colspan="2">Order #<c:out value="${sessionScope.order.orderId}" /></th>
 		</tr>

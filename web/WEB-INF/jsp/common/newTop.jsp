@@ -30,9 +30,9 @@
 <body>
 
 <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
+    <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="mainForm">JPetStore</a>
+            <a class="navbar-brand" href="mainStyle">JPetStore</a>
         </div>
         <ul class="nav navbar-nav navbar-left">
             <li class="nav-item">

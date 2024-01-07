@@ -25,22 +25,38 @@ public class NewOrderServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String shippingAddressRequired = req.getParameter("shippingAddressRequired");
-        String confirmed = req.getParameter("confirmed");
-
-        if (shippingAddressRequired != null && shippingAddressRequired.equals("true")) {
-            req.getRequestDispatcher(SHIPPING).forward(req, resp);
-        } else if (confirmed == null || confirmed.equals("false")) {
-            req.getRequestDispatcher(CONFIRM_ORDER).forward(req, resp);
-        } else {
-            HttpSession session = req.getSession();
+//        String shippingAddressRequired = req.getParameter("shippingAddressRequired");
+//        String confirmed = req.getParameter("confirmed");
+//
+//        if (shippingAddressRequired != null && shippingAddressRequired.equals("true")) {
+//            req.getRequestDispatcher(SHIPPING).forward(req, resp);
+//        } else if (confirmed == null || confirmed.equals("false")) {
+//            req.getRequestDispatcher(CONFIRM_ORDER).forward(req, resp);
+//        } else {
+//            HttpSession session = req.getSession();
+//            Order order = (Order) session.getAttribute("order");
+//            orderService.insertOrder(order);
+//            Cart cart = (Cart) session.getAttribute("cart");
+//            cart.deleteCart();
+//            session.removeAttribute("cart");
+//
+//            req.getRequestDispatcher(VIEW_ORDER).forward(req, resp);
+//        }
+//
+        HttpSession session = req.getSession();
+        int stage = Integer.parseInt(req.getParameter("stage"));
+        System.out.println(stage);
+        if(stage==2){
             Order order = (Order) session.getAttribute("order");
             orderService.insertOrder(order);
             Cart cart = (Cart) session.getAttribute("cart");
             cart.deleteCart();
             session.removeAttribute("cart");
-
-            req.getRequestDispatcher(VIEW_ORDER).forward(req, resp);
         }
+        stage++;
+        session.setAttribute("stage",stage);
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+        resp.getWriter().write("{\"stage\":" + stage + "}");
     }
 }

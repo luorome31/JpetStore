@@ -4,12 +4,12 @@ body {
     font-family: helvetica, tahoma, arial, verdana, sans-serif;
     font-size: 2ex;
     color: #333;
-    background-color: #444;
+    background-color: #FFFFFF;
+    width: 1080px;
 }
 
 pre {
     font-family: "Courier New", Courier, mono;
-
     font-style: normal;
     background-color: #FFFFFF;
     white-space: pre
@@ -176,9 +176,13 @@ body>#Menu {
     voice-family: inherit;
     height: 9ex;
 }
-
+#SearchContent{
+    height: 9ex;
+}
 body>#Search {
     height: 9ex;
+    justify-content: center;
+    align-items: center;
 }
 
 #Search input {
@@ -187,6 +191,9 @@ body>#Search {
     border-color: #aaa;
     background-color: #666;
     color: #eaac00;
+    height: 5em;
+    margin: 1px;
+
 }
 
 #QuickLinks {
@@ -274,12 +281,12 @@ body>#Banner {
     text-align:center;
     width: 50%;
 }
-
 #Catalog {
     padding: 1ex;
     background:inherit;
     text-align:center;
 }
+
 
 #Catalog input[type="submit"]{
     padding: .3ex;
@@ -297,6 +304,35 @@ body>#Banner {
 }
 
 #Catalog table{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+.Catalog {
+    padding: 1ex;
+    background:inherit;
+    text-align:center;
+    clear: both;
+}
+
+
+.Catalog input[type="submit"]{
+    padding: .3ex;
+    color: #fff;
+    background-color: #005e21;
+    text-decoration: none;
+    font-family: helvetica, tahoma, arial, verdana, sans-serif;
+    font-size: 1.5ex;
+    border-width:0;
+}
+.Catalog input[type="submit"]:hover {
+    color: #000;
+    background-color: #54c07a;
+    cursor:pointer;
+}
+
+.Catalog table{
     margin-left:auto;
     margin-right:auto;
 }
@@ -320,4 +356,77 @@ body>#Banner {
     float: left;
     background-color:#ccc;
     text-align:left;
+}
+#productAutoComplete{
+    background:#ccc;
+    position: relative;
+    top:-28px;
+    left: 95px;
+    width:100px;
+}
+#productAutoList{
+    margin:0;
+    padding: 0;
+    border:1px solid #aaa;
+}
+.productAutoItem{
+    list-style: none;
+    height: 18.5px;
+    line-height: 20px;
+    font-size:10px;
+    margin-top:3px;
+    border-bottom: 1px solid #666;
+    text-align: left;
+    padding-left:5px;
+    color: #005e21;
+    cursor:pointer;
+}
+
+
+.icon2{
+    height: 50px;
+    width: 100px;
+    float: left;
+    background-color: #ececec;
+    text-align: center;
+    line-height: 50px;
+}
+.next{
+    float: left;
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-left: 30px solid #ececec;
+    border-bottom: 25px solid transparent;
+}
+.pre{
+    float: left;
+    margin-left: -20px;
+}
+.preup{
+    clear: both;
+    width: 0;
+    height: 0;
+    border-bottom: 25px solid transparent;
+    border-right: 30px solid #ececec;
+}
+.predown{
+    clear: both;
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-right: 30px solid #ececec;
+}
+.content{
+    width: 518px;
+    height: 300px;
+    border: 1px solid #ececec;
+    border-top: none;
+    clear: both;
+}
+#stageShow{
+    padding: 1ex;
+    text-align:center;
+    display: flex;
+    justify-content: center;
 }

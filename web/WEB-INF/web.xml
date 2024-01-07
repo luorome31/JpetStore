@@ -192,4 +192,65 @@
         <servlet-name>SearchProductServlet</servlet-name>
         <url-pattern>/searchProduct</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ProductAutoCompleteServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ProductAutoCompleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductAutoCompleteServlet</servlet-name>
+        <url-pattern>/productAuto</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>quantityChangeServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.quantityChangeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>quantityChangeServlet</servlet-name>
+        <url-pattern>/quantityChange</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>generateOrderServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.generateOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>generateOrderServlet</servlet-name>
+        <url-pattern>/myOrder</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MainStyleServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.MainStyleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MainStyleServlet</servlet-name>
+        <url-pattern>/mainStyle</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MainListServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.MainListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MainListServlet</servlet-name>
+        <url-pattern>/mainList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>preViewServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.preViewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>preViewServlet</servlet-name>
+        <url-pattern>/preView</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UsernameExistServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.UsernameExistServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsernameExistServlet</servlet-name>
+        <url-pattern>/usernameExist</url-pattern>
+    </servlet-mapping>
 </web-app>

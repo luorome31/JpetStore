@@ -17,6 +17,10 @@
 
 </div>
 
+<script src="js/productAuto.js"></script>
+<script src="js/cartNumber.js"></script>
+<script src="js/orderConfirm.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
 
 </body>
 </html>

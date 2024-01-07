@@ -1,6 +1,6 @@
 <h3>Account Information</h3>
 
-<table>
+<table class="table table-bordered">
     <tr>
         <td>First name:</td>
         <td><input type="text" name="firstName" value="${sessionScope.loginAccount.firstName}"/></td>
@@ -45,7 +45,7 @@
 
 <h3>Profile Information</h3>
 
-<table>
+<table class="table table-bordered">
     <tr>
         <td>Language Preference:</td>
         <td>

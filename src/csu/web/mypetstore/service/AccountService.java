@@ -21,6 +21,10 @@ public class AccountService {
         account.setPassword(password);
         return accountDao.getAccountByUsernameAndPassword(account);
     }
+    public Account getAccount(String username) {
+        return accountDao.getAccountByUsername(username);
+    }
+
     public void insertAccount(Account account) {
         accountDao.insertAccount(account);
         accountDao.insertProfile(account);

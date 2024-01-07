@@ -2,6 +2,7 @@ package csu.web.mypetstore.web.servlet;
 
 
 import csu.web.mypetstore.domain.Account;
+import csu.web.mypetstore.domain.Item;
 import csu.web.mypetstore.domain.Product;
 import csu.web.mypetstore.service.CatalogService;
 import csu.web.mypetstore.service.LogService;
@@ -22,7 +23,7 @@ public class SearchProductServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
-
+    CatalogService catalogService = new CatalogService();
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         keyword = request.getParameter("keyword");
         CatalogService service = new CatalogService();

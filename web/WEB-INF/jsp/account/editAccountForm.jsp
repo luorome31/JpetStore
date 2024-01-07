@@ -7,7 +7,9 @@
         <table>
             <tr>
                 <td>User ID:</td>
-                <td>${sessionScope.loginAccount.username}</td>
+                <td><input type="text" name="username" id="username" placeholder="${sessionScope.loginAccount.username}"></td>
+                <div id="feedback"></div>
+
             </tr>
             <tr>
                 <td>New password:</td>
@@ -26,6 +28,7 @@
     <a href="listOrders">My Orders</a>
     <br>
     <a href="searchRecord">My Record</a>
+    <script src="js/register.js"></script>
 
 </div>
 

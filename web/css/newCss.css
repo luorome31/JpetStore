@@ -1,0 +1,88 @@
+#Content {
+    margin: 0;
+    padding: 20px;
+    width: 99%;
+    color: #333;
+    background-color: #FFF;
+    border-width: 0;
+}
+
+
+.signMain {
+    padding: 1ex;
+    background:inherit;
+    text-align:center;
+    clear: both;
+}
+
+
+.signMain input[type="submit"]{
+    padding: .3ex;
+    color: #fff;
+    background-color: #005e21;
+    text-decoration: none;
+    font-family: helvetica, tahoma, arial, verdana, sans-serif;
+    font-size: 1.5ex;
+    border-width:0;
+}
+.signMain input[type="submit"]:hover {
+    color: #000;
+    background-color: #54c07a;
+    cursor:pointer;
+}
+
+.signMain table{
+    margin-left:auto;
+    margin-right:auto;
+}
+/*.mainParent {*/
+/*    margin: 0;*/
+/*    padding: 20px;*/
+/*    width: 99%;*/
+/*    color: #333;*/
+/*    background-color: #FFF;*/
+/*    border-width: 0;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center*/
+/*}*/
+
+
+#Catalog {
+    padding: 1ex;
+    background:inherit;
+    text-align:center;
+}
+
+
+#Catalog input[type="submit"]{
+    padding: .3ex;
+    color: #fff;
+    background-color: #005e21;
+    text-decoration: none;
+    font-family: helvetica, tahoma, arial, verdana, sans-serif;
+    font-size: 1.5ex;
+    border-width:0;
+}
+#Catalog input[type="submit"]:hover {
+    color: #000;
+    background-color: #54c07a;
+    cursor:pointer;
+}
+
+#Catalog table{
+    margin-left:auto;
+    margin-right:auto;
+}
+#Cart{
+    width: 69.99%;
+    float: left;
+    background-color:#fff;
+}
+
+#MyList{
+    width: 30%;
+    float: left;
+    background-color:#ccc;
+    text-align:left;
+}

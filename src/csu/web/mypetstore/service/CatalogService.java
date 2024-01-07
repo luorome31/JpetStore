@@ -10,6 +10,7 @@ import csu.web.mypetstore.persistence.impl.CategoryDaoImpl;
 import csu.web.mypetstore.persistence.impl.ItemDaoImpl;
 import csu.web.mypetstore.persistence.impl.ProductDaoImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CatalogService {
@@ -51,6 +52,16 @@ public class CatalogService {
         return itemDao.getItem(itemId);
     }
 
+    public List<Item> getMainListByCategory(String categoryId){
+        List<Item> itemList = new ArrayList<>();
+        List<Product> products = getProductListByCategory(categoryId);
+        for (Product product :
+                products) {
+            List<Item> tepList = getItemListByProduct(product.getProductId());
+            itemList.addAll(tepList);
+        }
+        return itemList;
+    }
     public boolean isItemInStock(String itemId) {
         return itemDao.getInventoryQuantity(itemId) > 0;
     }
